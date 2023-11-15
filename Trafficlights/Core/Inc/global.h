@@ -11,7 +11,7 @@
 #include "main.h"
 
 // SOFTWARE_TIMER
-#define BLINKY_CYCLE					500
+#define BLINK_CYCLE						500
 #define TIMER_CYCLE						10
 
 // VARIABLES
