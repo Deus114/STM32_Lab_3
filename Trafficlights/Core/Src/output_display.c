@@ -131,3 +131,11 @@ void update_7SEG(void)
 	}
 }
 
+void LED_RED_Blinking(void) {
+	if(LED_flag > 0) {
+		set_timer_LED(BLINK_CYCLE);
+		HAL_GPIO_TogglePin(LED_RED_1_GPIO_Port, LED_RED_1_Pin);
+		HAL_GPIO_TogglePin(LED_RED_2_GPIO_Port, LED_RED_2_Pin);
+	}
+}
+
