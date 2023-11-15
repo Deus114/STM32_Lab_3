@@ -5,4 +5,4 @@
  *      Author: ASUS
  */
 
-#include "global.h";
+#include "global.h"
