@@ -76,5 +76,58 @@ void display_7SEG(unsigned char num)
 	}
 }
 
+void update_7SEG(void)
+{
+	switch (index_led)
+	{
+	case 0:
+		if(LED_7SEGS_flag > 0) {
+			HAL_GPIO_WritePin(GPIOA, EN0_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOA, EN1_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOA, EN2_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOA, EN3_Pin, GPIO_PIN_SET);
 
+			display_7SEG(LED_Buffer[index_led]);
+			set_timer_7SEGS_LED(250);
+			index_led = 1;
+		}
+		break;
+	case 1:
+		if(LED_7SEGS_flag > 0) {
+			HAL_GPIO_WritePin(GPIOA, EN0_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOA, EN1_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOA, EN2_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOA, EN3_Pin, GPIO_PIN_SET);
+
+			display_7SEG(LED_Buffer[index_led]);
+			set_timer_7SEGS_LED(250);
+			index_led = 2;
+		}
+		break;
+	case 2:
+		if(LED_7SEGS_flag > 0) {
+			HAL_GPIO_WritePin(GPIOA, EN0_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOA, EN1_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOA, EN2_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOA, EN3_Pin, GPIO_PIN_SET);
+
+			display_7SEG(LED_Buffer[index_led]);
+			set_timer_7SEGS_LED(250);
+			index_led = 3;
+		}
+		break;
+	case 3:
+		if(LED_7SEGS_flag > 0) {
+			HAL_GPIO_WritePin(GPIOA, EN0_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOA, EN1_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOA, EN2_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(GPIOA, EN3_Pin, GPIO_PIN_RESET);
+
+			display_7SEG(LED_Buffer[index_led]);
+			set_timer_7SEGS_LED(250);
+			index_led = 0;
+		}
+		break;
+	}
+}
 
