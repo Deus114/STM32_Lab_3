@@ -139,3 +139,11 @@ void LED_RED_Blinking(void) {
 	}
 }
 
+void LED_AMBER_Blinking(void) {
+	if(LED_flag > 0) {
+		set_timer_LED(BLINK_CYCLE);
+		HAL_GPIO_TogglePin(LED_AMBER_1_GPIO_Port, LED_AMBER_1_Pin);
+		HAL_GPIO_TogglePin(LED_AMBER_2_GPIO_Port, LED_AMBER_2_Pin);
+	}
+}
+
